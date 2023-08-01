@@ -24,8 +24,8 @@ maxIntError() {
     exit 1
 }
 trap maxIntError ERR
-{ test 0 -eq $1 > /dev/null 2>&1 || expr $1 + 0 > /dev/null 2>$1; }
-{ test 0 -eq $2 > /dev/null 2>&2 || expr $2 + 0 > /dev/null 2>$2; }
+{ test 0 -eq $1 > /dev/null 2>$1 || expr $1 + 0 > /dev/null 2>$1; }
+{ test 0 -eq $2 > /dev/null 2>$2 || expr $2 + 0 > /dev/null 2>$2; }
 
 
 # メインの処理
