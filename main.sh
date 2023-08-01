@@ -6,7 +6,7 @@ if [[ $# -ne 2 ]]; then
     exit 1
 fi
 
-# 入力が正の自然数であること
+# 入力が正の整数であること
 if ! [[ $1 =~ ^([1-9][0-9]*|0)$ && $2 =~ ^([1-9][0-9]*|0)$ ]]; then
     echo "Error: 2 args must be positive integer; found ($*)"
     exit 1
@@ -24,8 +24,8 @@ maxIntError() {
     exit 1
 }
 trap maxIntError ERR
-expr $1 + 0 > /dev/null 2>$1
-expr $2 + 0 > /dev/null 2>$2
+{ test 0 -eq $1 > /dev/null 2>&1 || expr $1 + 0 > /dev/null 2>$1; }
+{ test 0 -eq $2 > /dev/null 2>&2 || expr $2 + 0 > /dev/null 2>$2; }
 
 
 # メインの処理
