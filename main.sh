@@ -2,8 +2,7 @@
 
 # 入力数
 if [[ $# -ne 2 ]]; then
-    echo "Needs two args"
-    echo "Usage: $0 <positive integer> <positive integer>"
+    echo "Error: Expecting 2 args; found $# ($*)"
     exit 1
 fi
 
