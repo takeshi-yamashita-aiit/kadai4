@@ -5,7 +5,7 @@
 echo "2" > /tmp/$$-ans
 # 正常動作の出力
 ./main.sh 2 4 > /tmp/$$-result
-diff /tmp/$$-ans /tmp/$$-result || echo "テスト2-1" >> /tmp/$$-error.log
+diff /tmp/$$-ans /tmp/$$-result || echo "テスト1-1" >> /tmp/$$-error.log
 
 # ------------------------------
 # 異常動作時のチェック
@@ -13,6 +13,10 @@ diff /tmp/$$-ans /tmp/$$-result || echo "テスト2-1" >> /tmp/$$-error.log
 echo "Error: Expecting 2 args; found 1 (15)" > /tmp/$$-ans
 ./main.sh 15 > /tmp/$$-result
 diff /tmp/$$-ans /tmp/$$-result || echo "テスト2-1" >> /tmp/$$-error.log
+
+echo "Error: Expecting 2 args; found 3 (15 48 60)" > /tmp/$$-ans
+./main.sh 15 48 60 > /tmp/$$-result
+diff /tmp/$$-ans /tmp/$$-result || echo "テスト2-2" >> /tmp/$$-error.log
 
 # ------------------------------
 # エラーメッセージを出力する
