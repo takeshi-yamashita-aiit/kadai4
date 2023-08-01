@@ -15,7 +15,7 @@ echo "Error: Expecting 2 args; found 1 (15)" > /tmp/$$-ans
 diff /tmp/$$-ans /tmp/$$-result || echo "テスト2-1" >> /tmp/$$-error.log
 
 echo "Error: Expecting 2 args; found 3 (15 48 60)" > /tmp/$$-ans
-./main.sh 15 48 60 > /tmp/$$-result
+./main.sh 12 48 60 > /tmp/$$-result
 diff /tmp/$$-ans /tmp/$$-result || echo "テスト2-2" >> /tmp/$$-error.log
 
 # ------------------------------
